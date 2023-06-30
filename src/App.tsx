@@ -1,10 +1,9 @@
-import Button from "@/components/button"
+import Button from '@/components/button'
 
 function App() {
-
   return (
     <>
-      <Button>Oi</Button>
+      <Button>Olá</Button>
     </>
   )
 }
