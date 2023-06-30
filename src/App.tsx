@@ -1,9 +1,11 @@
-import Button from '@/components/button'
+import Router from './config/router'
+import GlobalStyles from '@/assets/styles/global-styles'
 
 function App() {
   return (
     <>
-      <Button>Olá</Button>
+      <GlobalStyles />
+      <Router />
     </>
   )
 }
