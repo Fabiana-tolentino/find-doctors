@@ -1,10 +1,9 @@
 import Router from './config/router'
-import GlobalStyles from '@/assets/styles/global-styles'
+import './style/global.css'
 
 function App() {
   return (
     <>
-      <GlobalStyles />
       <Router />
     </>
   )

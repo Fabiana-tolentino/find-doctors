@@ -1,10 +1,9 @@
-import { Button } from '@/components/ui'
+import { Login } from '@/components/login/Login'
 
 export default function Contact() {
   return (
     <>
-      <h1>Olá, página HOME</h1>
-      <Button>BOTAO DE EXEMPLO COM COUNT </Button>
+      <Login />
     </>
   )
 }
