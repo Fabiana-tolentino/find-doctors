@@ -1,4 +1,6 @@
 import Button from '../ui/button'
+import { MdAdd } from 'react-icons/md'
+import Input from '../ui/input'
 
 export function Login() {
   return (
@@ -10,33 +12,17 @@ export function Login() {
         </div>
         <form className="w-full">
           <div>
-            <label className="text-gray-800 text-sm mb-2 flex flex-col focus:bg-green-1 ">
-              <span className="group-focus:text-green-2">E-mail</span>
-              <input
-                type="email"
-                className="border border-gray-300 px-1 py-4 rounded-2xl focus:outline-green-2"
-                placeholder="Digite seu e-mail"
-              />
-            </label>
-
-            <label
-              className="text-gray-800 text-sm mb-2 flex flex-col w-full"
-              placeholder="Digite sua senha"
-            >
-              <span className="focus:text-green-2">Senha</span>
-              <input
-                type="password"
-                className="border border-gray-300 px-1 py-4 rounded-2xl focus:outline-green-2"
-                placeholder="Digite sua senha"
-              />
-            </label>
+            <div className="flex flex-col gap-3">
+              <Input name={'E-mail '} tipo="email" />
+              <Input name={'Senha'} tipo="password" />
+            </div>
 
             <div className="flex gap-x-16 mt-7 ">
               <label htmlFor="remember" className="flex-1">
                 <input
                   type="checkbox"
                   id="remember"
-                  className="focus:bg-blue-500 mr-2"
+                  className="accent-blue-500 mr-2"
                 />
                 Lembrar-me
               </label>
@@ -44,7 +30,6 @@ export function Login() {
                 Esqueci minha senha
               </a>
             </div>
-
             <Button>Entrar</Button>
           </div>
         </form>

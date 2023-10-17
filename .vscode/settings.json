@@ -1,5 +1,5 @@
 {
-  "window.zoomLevel": 3,
+  "window.zoomLevel": 2,
   "breadcrumbs.enabled": false,
   "editor.inlineSuggest.enabled": true,
   "editor.minimap.enabled": false,
@@ -24,7 +24,7 @@
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
   },
-  "files.autoSave": "onFocusChange",
+  "files.autoSave": "off",
   "prettier.configPath": "./.prettierrc",
   "prettier.tabWidth": 2,
   "prettier.requireConfig": true,
