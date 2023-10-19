@@ -80,7 +80,7 @@ const router = createBrowserRouter([
         element: <Profile />,
         children: [
           {
-            path: '/profile/data',
+            path: '/profile/user-data',
             element: <Data />
           },
           {
@@ -90,10 +90,6 @@ const router = createBrowserRouter([
           {
             path: '/profile/adm',
             element: <Adm />
-          },
-          {
-            path: '/profile/modal',
-            element: <Modal />
           }
         ]
       }
