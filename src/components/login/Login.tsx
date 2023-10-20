@@ -1,24 +1,22 @@
-import Button from '../ui/button'
-import { MdAdd } from 'react-icons/md'
-import Input from '../ui/input'
 import { useForm } from 'react-hook-form'
 import { LoginProps, login } from '@/services/login'
-import { isAutheticated } from '@/services/authClient'
+
 import { CreateAppContext } from '@/contexts/appContext'
 import { useContext } from 'react'
-import { redirect, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 export function Login() {
   const { register, handleSubmit } = useForm()
   const navigate = useNavigate()
   const { data, userLoged } = useContext(CreateAppContext)
   const handleClick = async ({ email, password }: LoginProps) => {
-    await login({ email, password })
+    await login({ email, password }).then(() => {
+      userLoged()
+      if (data.isAuthenticated) {
+        navigate('/dashbord')
+      }
+    })
 
-    userLoged()
-    if (data.isAuthenticated) {
-      navigate('/dashbord')
-    }
     // console.log(authCheck())
   }
 

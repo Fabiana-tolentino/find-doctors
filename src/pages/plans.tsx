@@ -1,7 +1,17 @@
 import { LinkPlans } from '@/components/plans/linkPlans'
-import { Link, Outlet } from 'react-router-dom'
+import { useEffect } from 'react'
+import { Link, Outlet, useLocation, useNavigate } from 'react-router-dom'
 
 export default function Plans() {
+  const navigate = useNavigate()
+  const locationNow = useLocation()
+
+  useEffect(() => {
+    if (locationNow.pathname === '/plans') {
+      navigate('/plans/doctors')
+    }
+  })
+
   return (
     <div className="p-8 ">
       <h1 className="text-3xl font-semibold">Planos</h1>

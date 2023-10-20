@@ -2,11 +2,27 @@ import { BoxTitle } from '../boxSection/boxTitle'
 import { BoxUser } from '../boxSection/boxUser'
 import { dataUsersAll as data } from '@/api/Data'
 import { TableUsers } from '../table/tableUsers'
+import Input from '../ui/input'
 
 export function UsersAll() {
   return (
     <div className="w-full h-full bg-white p-6 flex gap-8 flex-col rounded-2xl">
-      <div>barra de pesquisa</div>
+      <div className="flex ">
+        <div className="flex w-[80%] gap-4">
+          <div className="w-[40%]">
+            <Input
+              name={''}
+              tipo={''}
+              placeholder="Pesquise a palavra chave "
+            />
+          </div>
+          <div className="flex w-[60rem] gap-4">
+            <Input name={''} tipo={''} placeholder="Estado (UF)" />
+            <Input name={''} tipo={''} placeholder="Cidade" />
+            <Input name={''} tipo={''} placeholder="Especialidade" />
+          </div>
+        </div>
+      </div>
       <div className="rounded-xl bg-green-4 pt-2">
         <table className="w-full rounded-xl bg-white ">
           <thead className="bg-green-4 h-16 text-white text-base ">

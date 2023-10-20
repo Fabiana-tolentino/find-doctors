@@ -1,4 +1,4 @@
-const TOKEN_FD = 'token_fd'
+const TOKEN_FD: string = 'token_fd'
 
 export const setToken = async (token: string) => {
   localStorage.setItem(TOKEN_FD, token)

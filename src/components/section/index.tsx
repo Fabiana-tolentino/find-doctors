@@ -1,6 +1,7 @@
 import { MdOutlineEast } from 'react-icons/md'
 import { BoxUser } from '../boxSection/boxUser'
 import { BoxTitle } from '../boxSection/boxTitle'
+import { Link } from 'react-router-dom'
 
 export const data = [
   {
@@ -29,7 +30,7 @@ export default function Section() {
       <div className="flex justify-between text-xl rounded-2xl p-6 ">
         <strong>Ultimos usuários cadastrados</strong>
         <button className="text-base flex gap-2">
-          Ver tudo
+          <Link to={'/users'}>Ver tudo</Link>
           <MdOutlineEast size={20} />
         </button>
       </div>
