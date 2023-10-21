@@ -1,7 +1,7 @@
 interface boxContentProps {
   icon: string
   title: string
-  value: string
+  value: number
   color: string
 }
 

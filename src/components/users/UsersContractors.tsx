@@ -1,8 +1,15 @@
+import { getUsers } from '@/api/getUsers'
+import { useState, useEffect } from 'react'
 import { TableUsers } from '../table/tableUsers'
 import Input from '../ui/input'
-import { dataUsersAll as data } from '@/api/Data'
 
 export function UsersContractors() {
+  const [usersContractors, setUsersContractors] = useState()
+
+  useEffect(() => {
+    getUsers(setUsersContractors)
+  }, [])
+
   return (
     <div className="w-full h-full bg-white p-6 flex gap-8 flex-col rounded-2xl">
       <div className="flex ">
@@ -41,12 +48,13 @@ export function UsersContractors() {
             </tr>
           </thead>
           <tbody className="p-2">
-            {data.map(user => {
+            {usersContractors?.map(user => {
               return (
                 <TableUsers
-                  user={user.user}
+                  key={user.id}
+                  user={user.firstName}
                   email={user.email}
-                  whatsapp={user.whatsapp}
+                  whatsapp={user.phone}
                   spec={user.spec}
                   cite={user.cite}
                   state={user.state}

@@ -5,7 +5,7 @@ export const setToken = async (token: string) => {
 }
 
 export const getTokenLocal = () => {
-  localStorage.getItem(TOKEN_FD)
+  return localStorage.getItem(TOKEN_FD)
 }
 
 export const logout = () => {

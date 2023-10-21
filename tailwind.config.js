@@ -25,7 +25,7 @@ export default {
 
       'gray-600': '#757575',
       'gray-800': '#424242',
-      "blue500": "#004ce8",
+      "blue-500": "#004ce8",
       'red': '#e64a19',
       'bluish-gray': '#BBC0CD66',
 

@@ -10,7 +10,7 @@ import Layout from '@/pages/layout'
 import Faq from '@/pages/faq'
 import { AppContext } from '@/contexts/appContext'
 import Users from '@/pages/users'
-import { UsersAll } from '@/components/users/UsersAll'
+
 import { UsersContractors } from '@/components/users/UsersContractors'
 import { UsersDoctors } from '@/components/users/UsersDoctors'
 import Profile from '@/pages/profile'
@@ -21,6 +21,7 @@ import { Modal } from '@/components/profile/modal'
 import Plans from '@/pages/plans'
 import { Doctors } from '@/components/plans/doctors'
 import { Contractors } from '@/components/plans/contractors'
+import { UsersAll } from '@/components/users/UsersAll'
 
 const router = createBrowserRouter([
   {

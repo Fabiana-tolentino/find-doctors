@@ -1,6 +1,6 @@
 interface TablePlansProps {
   type: string
-  value: string
+  value: number
   promotion: string
   situation: React.ReactNode
   actions: React.ReactNode

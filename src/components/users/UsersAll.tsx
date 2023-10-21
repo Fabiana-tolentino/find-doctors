@@ -1,10 +1,16 @@
-import { BoxTitle } from '../boxSection/boxTitle'
-import { BoxUser } from '../boxSection/boxUser'
-import { dataUsersAll as data } from '@/api/Data'
 import { TableUsers } from '../table/tableUsers'
 import Input from '../ui/input'
+import { useEffect, useState } from 'react'
+import { getUsers } from '@/api/getUsers'
 
 export function UsersAll() {
+  const [users, setUsers] = useState()
+
+  useEffect(() => {
+    getUsers(setUsers)
+  }, [])
+  console.log(users)
+
   return (
     <div className="w-full h-full bg-white p-6 flex gap-8 flex-col rounded-2xl">
       <div className="flex ">
@@ -42,12 +48,13 @@ export function UsersAll() {
             </tr>
           </thead>
           <tbody className="p-2">
-            {data.map(user => {
+            {users?.map(user => {
               return (
                 <TableUsers
-                  user={user.user}
+                  key={user.id}
+                  user={user.firstName}
                   email={user.email}
-                  whatsapp={user.whatsapp}
+                  whatsapp={user.phone}
                   spec={user.spec}
                   cite={user.cite}
                   state={user.state}

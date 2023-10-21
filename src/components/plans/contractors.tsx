@@ -1,8 +1,18 @@
+import { useEffect, useState } from 'react'
 import { TableHeadPlans } from '../table/tableHeadPlans'
 import { TablePlans } from '../table/tablePlans'
 import { HeaderPlans } from './headerPlans'
+import { getPlans } from '@/api/getPlans'
+import { plansOptions } from './doctors'
+import { ActionIcons } from '../actionIcons/actionIcons'
 
 export function Contractors() {
+  const [contractorsPlans, setContractorsPlans] = useState<plansOptions>()
+
+  useEffect(() => {
+    getPlans(setContractorsPlans, 'contratante')
+  }, [])
+
   return (
     <div>
       <HeaderPlans />
@@ -11,27 +21,16 @@ export function Contractors() {
         <table className="w-full rounded-xl bg-white ">
           <TableHeadPlans />
 
-          <TablePlans
-            type={'Mensal'}
-            value={'100'}
-            promotion={'98'}
-            situation={<>Situação </>}
-            actions={<>Ação </>}
-          />
-          <TablePlans
-            type={'Trimestral'}
-            value={'200'}
-            promotion={'198'}
-            situation={<> Situação </>}
-            actions={<> Ação</>}
-          />
-          <TablePlans
-            type={'Semestral'}
-            value={'300'}
-            promotion={'--'}
-            situation={<> Situação</>}
-            actions={<>Ação </>}
-          />
+          {contractorsPlans?.map((plan: plansOptions) => (
+            <TablePlans
+              key={plan.id}
+              type={plan.period}
+              value={plan.values}
+              promotion={'Não informado'}
+              situation={<>Situations</>}
+              actions={<ActionIcons />}
+            />
+          ))}
         </table>
       </div>
     </div>
