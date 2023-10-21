@@ -3,13 +3,23 @@ import Input from '../ui/input'
 import { useEffect, useState } from 'react'
 import { getUsers } from '@/api/getUsers'
 
+export interface userOptions {
+  id: string
+  firstName: string
+  email: string
+  phone: string
+  spec: string
+  city: string
+  state: string
+  typeUser: string
+}
+
 export function UsersAll() {
   const [users, setUsers] = useState()
 
   useEffect(() => {
     getUsers(setUsers)
   }, [])
-  console.log(users)
 
   return (
     <div className="w-full h-full bg-white p-6 flex gap-8 flex-col rounded-2xl">
@@ -48,7 +58,7 @@ export function UsersAll() {
             </tr>
           </thead>
           <tbody className="p-2">
-            {users?.map(user => {
+            {users?.map((user: userOptions) => {
               return (
                 <TableUsers
                   key={user.id}
@@ -56,7 +66,7 @@ export function UsersAll() {
                   email={user.email}
                   whatsapp={user.phone}
                   spec={user.spec}
-                  cite={user.cite}
+                  city={user.city}
                   state={user.state}
                   typeUser={user.typeUser}
                 />

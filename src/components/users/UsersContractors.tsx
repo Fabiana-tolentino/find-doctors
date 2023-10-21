@@ -2,6 +2,7 @@ import { getUsers } from '@/api/getUsers'
 import { useState, useEffect } from 'react'
 import { TableUsers } from '../table/tableUsers'
 import Input from '../ui/input'
+import { userOptions } from './UsersAll'
 
 export function UsersContractors() {
   const [usersContractors, setUsersContractors] = useState()
@@ -48,7 +49,7 @@ export function UsersContractors() {
             </tr>
           </thead>
           <tbody className="p-2">
-            {usersContractors?.map(user => {
+            {usersContractors?.map((user: userOptions) => {
               return (
                 <TableUsers
                   key={user.id}
@@ -56,7 +57,7 @@ export function UsersContractors() {
                   email={user.email}
                   whatsapp={user.phone}
                   spec={user.spec}
-                  cite={user.cite}
+                  city={user.city}
                   state={user.state}
                   typeUser={user.typeUser}
                 />

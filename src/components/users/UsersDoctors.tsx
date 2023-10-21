@@ -3,6 +3,7 @@ import { getUsers } from '@/api/getUsers'
 import { useState, useEffect } from 'react'
 import { TableUsers } from '../table/tableUsers'
 import Input from '../ui/input'
+import { userOptions } from './UsersAll'
 
 export function UsersDoctors() {
   const [usersDoctors, setUsersDoctors] = useState()
@@ -48,7 +49,7 @@ export function UsersDoctors() {
             </tr>
           </thead>
           <tbody className="p-2">
-            {usersDoctors?.map(user => {
+            {usersDoctors?.map((user: userOptions) => {
               return (
                 <TableUsers
                   key={user.id}
@@ -56,7 +57,7 @@ export function UsersDoctors() {
                   email={user.email}
                   whatsapp={user.phone}
                   spec={user.spec}
-                  cite={user.cite}
+                  city={user.city}
                   state={user.state}
                   typeUser={user.typeUser}
                 />

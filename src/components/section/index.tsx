@@ -29,7 +29,7 @@ export default function Section() {
     <div className="flex-1  items-center w-full h-fit bg-white rounded-2xl m-10 p-4 ">
       <div className="flex justify-between text-xl rounded-2xl p-6 ">
         <strong>Ultimos usuários cadastrados</strong>
-        <button className="text-base flex gap-2">
+        <button className="text-base flex gap-2 text-blue-500">
           <Link to={'/users'}>Ver tudo</Link>
           <MdOutlineEast size={20} />
         </button>
