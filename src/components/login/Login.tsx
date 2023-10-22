@@ -6,7 +6,7 @@ import { useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 export function Login() {
-  const { register, handleSubmit } = useForm()
+  const { register, handleSubmit } = useForm<LoginProps>()
   const navigate = useNavigate()
   const { data, userLoged } = useContext(CreateAppContext)
   const handleClick = async ({ email, password }: LoginProps) => {
@@ -17,8 +17,6 @@ export function Login() {
         navigate('/dashbord')
       }
     })
-
-    // console.log(authCheck())
   }
 
   return (
@@ -30,23 +28,6 @@ export function Login() {
         </div>
         <form className="w-full" onSubmit={handleSubmit(handleClick)}>
           <div>
-            {/* <div className="flex flex-col gap-3">
-              email:{' '}
-              <input className=''
-                {...register('email')}
-                type="email"
-                name="email"
-                id="email"
-              />
-              password:{' '}
-              <input
-                {...register('password')}
-                type="password"
-                name="password"
-                id="password"
-              />
-            </div> */}
-
             <div className="relative z-0 w-full mb-8">
               <input
                 {...register('email')}
