@@ -1,7 +1,11 @@
 import { TableUsers } from '../table/tableUsers'
 import Input from '../ui/input'
 import { useEffect, useState } from 'react'
-import { getUserCount, getUsers } from '@/api/getUsers'
+import {
+  getUserCount,
+  getUsers,
+  setNumberOfPagesFunction
+} from '@/api/getUsers'
 import { Search } from './search'
 import { countOption } from '@/pages/users'
 
@@ -19,10 +23,13 @@ export interface userOptions {
 export function UsersAll() {
   const [users, setUsers] = useState()
   const [count, setCount] = useState<countOption>()
+  const [page, setPage] = useState(0)
+  const [numberOfPages, setNumberOfPages] = useState(0)
 
   useEffect(() => {
-    getUsers(setUsers)
+    getUsers(setUsers, page)
     getUserCount(setCount)
+    setNumberOfPagesFunction(setNumberOfPages)
   }, [])
 
   return (
@@ -73,7 +80,27 @@ export function UsersAll() {
           </tbody>
         </table>
       </div>
-      <div>paginação</div>
+      <div className="flex gap-4 text-lg">
+        <button
+          onClick={() => page > 0 && setPage(page - 1)}
+          disabled={page === 0}
+        >
+          Página Anterior
+        </button>
+
+        <div className="flex gap-2 font-semibold">
+          <button onClick={() => setPage(1)}>1</button>
+          <button onClick={() => setPage(2)}>2</button>
+          <button onClick={() => setPage(3)}>3</button>
+          <button onClick={() => setPage(4)}>4</button>
+        </div>
+        <button
+          onClick={() => page < numberOfPages && setPage(page + 1)}
+          disabled={page === numberOfPages - 1}
+        >
+          Próxima Página
+        </button>
+      </div>
     </div>
   )
 }

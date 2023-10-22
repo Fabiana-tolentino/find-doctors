@@ -6,6 +6,7 @@ import Button from '../ui/button'
 import { ButtonNew } from '../ui/button/buttonNew'
 import { HeaderPlans } from './headerPlans'
 import { getPlans } from '@/api/getPlans'
+import { FormControlLabel, Switch } from '@mui/material'
 
 export interface plansOptions {
   id: number
@@ -36,7 +37,14 @@ export function Doctors() {
               type={plan.period}
               value={plan.values}
               promotion={'Não informado'}
-              situation={<>Situations</>}
+              situation={
+                <>
+                  <FormControlLabel
+                    control={<Switch defaultChecked color="success" />}
+                    label="Ativo"
+                  />
+                </>
+              }
               actions={<ActionIcons />}
             />
           ))}
