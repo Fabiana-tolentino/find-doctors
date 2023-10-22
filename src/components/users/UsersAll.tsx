@@ -1,7 +1,9 @@
 import { TableUsers } from '../table/tableUsers'
 import Input from '../ui/input'
 import { useEffect, useState } from 'react'
-import { getUsers } from '@/api/getUsers'
+import { getUserCount, getUsers } from '@/api/getUsers'
+import { Search } from './search'
+import { countOption } from '@/pages/users'
 
 export interface userOptions {
   id: string
@@ -16,29 +18,25 @@ export interface userOptions {
 
 export function UsersAll() {
   const [users, setUsers] = useState()
+  const [count, setCount] = useState<countOption>()
 
   useEffect(() => {
     getUsers(setUsers)
+    getUserCount(setCount)
   }, [])
 
   return (
     <div className="w-full h-full bg-white p-6 flex gap-8 flex-col rounded-2xl">
-      <div className="flex ">
-        <div className="flex w-[80%] gap-4">
-          <div className="w-[40%]">
-            <Input
-              name={''}
-              tipo={''}
-              placeholder="Pesquise a palavra chave "
-            />
-          </div>
-          <div className="flex w-[60rem] gap-4">
-            <Input name={''} tipo={''} placeholder="Estado (UF)" />
-            <Input name={''} tipo={''} placeholder="Cidade" />
-            <Input name={''} tipo={''} placeholder="Especialidade" />
-          </div>
+      <div className="flex">
+        <Search />
+
+        <div className="w-full"></div>
+        <div className="flex flex-col gap-2">
+          <span className="text-base  w-40">Total de usuários</span>
+          <span className="text-xl font-semibold">{count?.total}</span>
         </div>
       </div>
+
       <div className="rounded-xl bg-green-4 pt-2">
         <table className="w-full rounded-xl bg-white ">
           <thead className="bg-green-4 h-16 text-white text-base ">
@@ -65,10 +63,10 @@ export function UsersAll() {
                   user={user.firstName}
                   email={user.email}
                   whatsapp={user.phone}
-                  spec={user.spec}
-                  city={user.city}
-                  state={user.state}
-                  typeUser={user.typeUser}
+                  spec={'Não informado'}
+                  city={'Não informado'}
+                  state={'Não informado'}
+                  typeUser={'Não informado'}
                 />
               )
             })}

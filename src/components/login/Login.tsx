@@ -11,8 +11,9 @@ export function Login() {
   const { data, userLoged } = useContext(CreateAppContext)
   const handleClick = async ({ email, password }: LoginProps) => {
     await login({ email, password }).then(() => {
-      userLoged()
-      if (data.isAuthenticated) {
+      const token = localStorage.getItem('token_fd')
+
+      if (token) {
         navigate('/dashbord')
       }
     })

@@ -7,7 +7,7 @@ import { Spinner } from '@/components/ui'
 import Dashbord from '@/pages/dashbord'
 import { Login } from '@/components/login/Login'
 import Layout from '@/pages/layout'
-import Faq from '@/pages/faq'
+import Faq from '../pages/faq'
 import { AppContext } from '@/contexts/appContext'
 import Users from '@/pages/users'
 
@@ -74,7 +74,17 @@ const router = createBrowserRouter([
       },
       {
         path: '/faq',
-        element: <Faq />
+        element: <Faq />,
+        children: [
+          {
+            path: '/faq/doctors',
+            element: <Doctors />
+          },
+          {
+            path: '/faq/contractors',
+            element: <Contractors />
+          }
+        ]
       },
       {
         path: '/profile',

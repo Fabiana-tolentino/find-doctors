@@ -1,18 +1,28 @@
+import { getUserCount } from '@/api/getUsers'
 import { bgUsersAll } from '@/functions/pages/users'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { Link, Outlet, useLocation, useNavigate } from 'react-router-dom'
 
+export interface countOption {
+  total: number
+  totalDoctors: number
+  totalContractor: number
+}
+
 export default function Users() {
+  const [count, setCount] = useState<countOption>()
+
   const navigate = useNavigate()
   const locationNow = useLocation().pathname
 
-  console.log(locationNow)
-
   useEffect(() => {
+    getUserCount(setCount)
     if (locationNow === '/users') {
       navigate('/users/all')
     }
-  })
+  }, [])
+
+  console.log(count)
 
   const all = bgUsersAll(locationNow, '/users/all')
   const contractors = bgUsersAll(locationNow, '/users/contractors')
@@ -31,7 +41,7 @@ export default function Users() {
             <span
               className={`bg-green-1 ${all?.bg2} ${all?.textColor} py-1 px-3 rounded-2xl`}
             >
-              1200
+              {count?.total}
             </span>
           </Link>
           <Link
@@ -42,7 +52,7 @@ export default function Users() {
             <span
               className={`bg-green-1 ${contractors?.bg2} ${contractors?.textColor} py-1 px-3 rounded-2xl`}
             >
-              200
+              {count?.totalContractor}
             </span>
           </Link>
           <Link
@@ -53,7 +63,7 @@ export default function Users() {
             <span
               className={`bg-green-1 ${doctors?.bg2} ${doctors?.textColor} py-1 px-3 rounded-2xl`}
             >
-              1000
+              {count?.totalDoctors}
             </span>
           </Link>
         </div>
