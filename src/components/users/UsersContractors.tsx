@@ -7,7 +7,7 @@ import { Search } from './search'
 import { countOption } from '@/pages/users'
 
 export function UsersContractors() {
-  const [usersContractors, setUsersContractors] = useState()
+  const [usersContractors, setUsersContractors] = useState<userOptions>()
   const [count, setCount] = useState<countOption>()
 
   useEffect(() => {

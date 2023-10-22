@@ -29,12 +29,10 @@ export function Contractors() {
               value={plan.values}
               promotion={'Não informado'}
               situation={
-                <>
-                  <FormControlLabel
-                    control={<Switch defaultChecked color="success" />}
-                    label="Ativo"
-                  />
-                </>
+                <FormControlLabel
+                  control={<Switch defaultChecked color="success" />}
+                  label="Ativo"
+                />
               }
               actions={<ActionIcons />}
             />

@@ -15,6 +15,7 @@ export interface plansOptions {
   period: string
   type: string
   values: number
+  map: any
 }
 
 export function Doctors() {

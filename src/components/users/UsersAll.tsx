@@ -18,10 +18,11 @@ export interface userOptions {
   city: string
   state: string
   typeUser: string
+  map: any
 }
 
 export function UsersAll() {
-  const [users, setUsers] = useState()
+  const [users, setUsers] = useState<userOptions>()
   const [count, setCount] = useState<countOption>()
   const [page, setPage] = useState(0)
   const [numberOfPages, setNumberOfPages] = useState(0)

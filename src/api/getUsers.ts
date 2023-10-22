@@ -5,7 +5,7 @@ export const getUserDashboard = async (event: Function) => {
   event(res.data)
 }
 
-export const getUsers = async (event: Function, page: number) => {
+export const getUsers = async (event: Function, page?: number) => {
   const res = await api.get('/users', {
     params: {
       page,
